@@ -2,9 +2,9 @@ import React, { useCallback } from 'react';
 import lodash from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, setText } from '../store';
-import { TodoItem } from './TodoItem';
+import TodoItem from './TodoItem';
 
-export function TodoList() {
+function TodoList() {
   const dispatch = useDispatch();
 
   const items = useSelector((state) => state.items);
@@ -30,3 +30,5 @@ export function TodoList() {
     </div>
   );
 }
+
+export default TodoList;

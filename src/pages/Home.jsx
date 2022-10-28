@@ -1,6 +1,7 @@
-import { TodoList } from '../components/TodoList';
+import React from 'react';
+import TodoList from '../components/TodoList';
 
-export function Home() {
+function Home() {
   return (
     <>
       <h1 data-testid="page-title">Home</h1>
@@ -9,3 +10,4 @@ export function Home() {
     </>
   );
 }
+export default Home;

@@ -13,7 +13,8 @@
     "react-scripts": "^5.0.1",
     "redux": "^4.1.0",
     "redux-observable": "^2.0.0",
-    "rxjs": "^7.1.0"
+    "rxjs": "^7.1.0",
+    "uuid": "^9.0.0"
   },
   "scripts": {
     "start": "npx webpack serve --config=./webpack.config.js --mode=development",
@@ -41,6 +42,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "stream": "^0.0.2",
     "webpack": "^5.74.0",
