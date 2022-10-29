@@ -6,10 +6,10 @@
 
 1. **Подключите в проект инструменты для разработки и настройте их запуск через секцию scripts в package.json**
 
-   [.] `build` — сборка приложения для публикации в production в папку `dist`
-   [.] `start` — запуск локального сервера для разработки
-   [.] `lint:js` — проверка JS кода при помощи [ESLint](https://eslint.org)
-   [.] `lint:css` — проверка CSS кода при помощи [Stylelint](https://stylelint.io)
+   [x] `build` — сборка приложения для публикации в production в папку `dist`
+   [x] `start` — запуск локального сервера для разработки
+   [x] `lint:js` — проверка JS кода при помощи [ESLint](https://eslint.org)
+   [x] `lint:css` — проверка CSS кода при помощи [Stylelint](https://stylelint.io)
    [ ] `analyze` — формирование html отчета о сборке при помощи [Statoscope](http://statoscope.tech)
    [ ] `validate` — проверка сборки через Statoscope при помощи конфига из файла `statoscope.config.js`
    [ ] `deploy` — публикация приложения, собранного командой `build`, в GitHub Pages при помощи пакета [gh-pages](https://www.npmjs.com/package/gh-pages)
