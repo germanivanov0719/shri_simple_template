@@ -21,7 +21,7 @@
     "build": "npx webpack build --config=./webpack.config.js --mode=production",
     "test": "echo \"implement me\"",
     "lint:js": "npx eslint \"**/*.js*\"",
-    "lint:css": "npx eslint \"**/*.css*\"",
+    "lint:css": "npx stylelint \"**/*.css\"",
     "analyze": "echo \"implement me\"",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js"
   },
@@ -45,6 +45,9 @@
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "stream": "^0.0.2",
+    "stylelint": "^14.14.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^29.0.0",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
