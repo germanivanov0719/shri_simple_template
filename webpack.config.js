@@ -14,8 +14,10 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Home',
-      template: path.resolve(__dirname, './index.html'),
+      filename: 'index.html',
+      template: path.resolve(__dirname, 'public', 'index.html'),
       favicon: './public/favicon.ico',
+      inject: true,
     }),
     new StatoscopePlugin({
       saveStatsTo: 'stats.json',
@@ -27,11 +29,12 @@ const config = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
       {
-        test: /\.html$/i,
+        test: /\.html$/,
         loader: 'html-loader',
         exclude: /node_modules/,
       },
@@ -51,24 +54,26 @@ const config = {
         ],
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         loader: 'css-loader',
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        test: /\.(ico|json|png|woff|woff2|eot|ttf|svg)$/,
+        use: ['file-loader?name=[name].[ext]'],
         exclude: /node_modules/,
-        use: ['file-loader?name=[name].[ext]'], // ?name=[name].[ext] is only necessary to preserve the original file name
       },
     ],
   },
   resolve: {
-    extensions: ['.jsx', '.ts', '.tsx', '.js', '.css', '.ico'],
+    extensions: ['*', '.jsx', '.js', '.css'],
   },
   optimization: {
     concatenateModules: true,
     minimize: true,
     moduleIds: 'deterministic',
+    chunkIds: 'deterministic',
+    emitOnErrors: true,
     innerGraph: true,
     splitChunks: {
       minChunks: 2,
@@ -85,8 +90,9 @@ const config = {
     },
   },
   devServer: {
-    static: { directory: path.join(__dirname, 'public') },
-    // open: true,
+    static: [
+      { directory: path.resolve(__dirname, 'public') },
+      { directory: path.resolve(__dirname, 'dist') }],
     compress: true,
     hot: true,
     port: 8080,
