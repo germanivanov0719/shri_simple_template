@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
 
 const config = {
-  // target: 'web',
+  target: 'web',
   mode: 'development',
   entry: {
     main: './src/index.jsx',
@@ -13,7 +13,8 @@ const config = {
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public', 'index.html'),
+      title: 'Home',
+      template: path.resolve(__dirname, './index.html'),
       favicon: './public/favicon.ico',
     }),
     new StatoscopePlugin({
@@ -23,7 +24,7 @@ const config = {
     }),
   ],
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     clean: true,
   },
@@ -34,11 +35,6 @@ const config = {
         loader: 'html-loader',
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.(ts|tsx)$/i,
-      //   loader: 'ts-loader',
-      //   exclude: '/node_modules/',
-      // },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
@@ -59,24 +55,44 @@ const config = {
         loader: 'css-loader',
         exclude: /node_modules/,
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        exclude: /node_modules/,
+        use: ['file-loader?name=[name].[ext]'], // ?name=[name].[ext] is only necessary to preserve the original file name
+      },
     ],
   },
   resolve: {
-    extensions: ['.jsx', '.ts', '.tsx', '.js', '.css'],
+    extensions: ['.jsx', '.ts', '.tsx', '.js', '.css', '.ico'],
   },
-  // @TODO optimizations
-  // @TODO lodash treeshaking
-  // @TODO chunk for lodash
-  // @TODO chunk for runtime
-  // @TODO fallback for crypto
-
-  // Настройка сервера разработки
+  optimization: {
+    concatenateModules: true,
+    minimize: true,
+    moduleIds: 'deterministic',
+    innerGraph: true,
+    splitChunks: {
+      minChunks: 2,
+      chunks: 'all',
+      minSize: 0,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+        },
+      },
+    },
+    runtimeChunk: {
+      name: 'runtime',
+    },
+  },
   devServer: {
-    static: { directory: path.join(__dirname, 'dist') },
-    open: true,
+    static: { directory: path.join(__dirname, 'public') },
+    // open: true,
     compress: true,
     hot: true,
     port: 8080,
+    client: {
+      progress: true,
+    },
   },
 };
 

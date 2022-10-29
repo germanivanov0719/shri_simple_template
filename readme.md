@@ -6,7 +6,7 @@
 
 1. **Подключите в проект инструменты для разработки и настройте их запуск через секцию scripts в package.json**
 
-   - `build` — cборка приложения для публкации в production в папку `dist`
+   - `build` — сборка приложения для публикации в production в папку `dist`
    - `start` — запуск локального сервера для разработки
    - `lint:js` — проверка JS кода при помощи [ESLint](https://eslint.org)
    - `lint:css` — проверка CSS кода при помощи [Stylelint](https://stylelint.io)
