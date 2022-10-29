@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StatoscopePlugin = require('@statoscope/webpack-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   target: 'web',
@@ -24,6 +25,7 @@ const config = {
       saveOnlyStats: false,
       open: false,
     }),
+    new MiniCssExtractPlugin(),
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -55,7 +57,7 @@ const config = {
       },
       {
         test: /\.css$/,
-        loader: 'css-loader',
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
         exclude: /node_modules/,
       },
       {
@@ -67,15 +69,22 @@ const config = {
   },
   resolve: {
     extensions: ['*', '.jsx', '.js', '.css'],
+    alias: {
+      'react-is': path.resolve('node_modules/react-is'),
+    },
   },
   optimization: {
     concatenateModules: true,
     minimize: true,
-    moduleIds: 'deterministic',
-    chunkIds: 'deterministic',
+    moduleIds: 'size',
+    chunkIds: 'size',
     emitOnErrors: true,
+    mangleExports: 'size',
+    mangleWasmImports: true,
+    mergeDuplicateChunks: false,
     innerGraph: true,
     splitChunks: {
+      maxSize: 250000,
       minChunks: 2,
       chunks: 'all',
       minSize: 0,
@@ -88,6 +97,10 @@ const config = {
     runtimeChunk: {
       name: 'runtime',
     },
+  },
+  performance: {
+    maxEntrypointSize: 250000,
+    maxAssetSize: 250000,
   },
   devServer: {
     static: [
