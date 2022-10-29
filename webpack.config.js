@@ -94,6 +94,7 @@ const config = {
       { directory: path.resolve(__dirname, 'public') },
       { directory: path.resolve(__dirname, 'dist') }],
     compress: true,
+    open: true,
     hot: true,
     port: 8080,
     client: {
