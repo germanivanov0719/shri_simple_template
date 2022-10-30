@@ -40,6 +40,6 @@ jobs:
       - name: Install Stylelint
         run: npm install
 
-      - name: Run ESLint
+      - name: Run Stylelint
         run: npm run lint:css -- --fix
         continue-on-error: true
