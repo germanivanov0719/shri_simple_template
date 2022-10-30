@@ -12,7 +12,7 @@
    [x] `lint:css` — проверка CSS кода при помощи [Stylelint](https://stylelint.io)
    [ ] `analyze` — формирование html отчета о сборке при помощи [Statoscope](http://statoscope.tech)
    [x] `validate` — проверка сборки через Statoscope при помощи конфига из файла `statoscope.config.js`
-   [ ] `deploy` — публикация приложения, собранного командой `build`, в GitHub Pages при помощи пакета [gh-pages](https://www.npmjs.com/package/gh-pages)
+   [x] `deploy` — публикация приложения, собранного командой `build`, в GitHub Pages при помощи пакета [gh-pages](https://www.npmjs.com/package/gh-pages)
 
 2. **Настройте автоматическое выполнение действий в CI**
 
