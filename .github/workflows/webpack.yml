@@ -26,4 +26,4 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run deploy -- --user "GitHub Actions <germanivanov0719@gmail.com>" --repo "https://github.com/germanivanov0719/shri_simple_template.git"
+          npm run deploy -- --user \"GitHub Actions <germanivanov0719@gmail.com>\" --repo \"https://github.com/germanivanov0719/shri_simple_template.git\"
