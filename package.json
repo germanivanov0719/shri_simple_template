@@ -38,6 +38,7 @@
     "@statoscope/webpack-plugin": "^5.24.0",
     "@webpack-cli/generators": "^0.1.9",
     "babel-loader": "^8.2.5",
+    "babel-plugin-lodash": "^3.3.4",
     "cipher-base": "^1.0.4",
     "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.1",

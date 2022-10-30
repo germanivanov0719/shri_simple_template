@@ -8,10 +8,8 @@ const config = {
   mode: 'development',
   entry: {
     main: './src/index.jsx',
-    about: './src/pages/About.jsx',
-    home: './src/pages/Home.jsx',
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Home',
@@ -43,7 +41,7 @@ const config = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
+        use:
           {
             loader: 'babel-loader',
             options: {
@@ -51,9 +49,10 @@ const config = {
                 '@babel/preset-env',
                 ['@babel/preset-react', { runtime: 'automatic' }],
               ],
+              plugins: ['lodash'],
             },
           },
-        ],
+
       },
       {
         test: /\.css$/,
@@ -71,6 +70,10 @@ const config = {
     extensions: ['*', '.jsx', '.js', '.css'],
     alias: {
       'react-is': path.resolve('node_modules/react-is'),
+    },
+    fallback: {
+      buffer: require.resolve('buffer'),
+      stream: false,
     },
   },
   optimization: {
@@ -94,9 +97,7 @@ const config = {
         },
       },
     },
-    runtimeChunk: {
-      name: 'runtime',
-    },
+    runtimeChunk: 'single',
   },
   performance: {
     maxEntrypointSize: 250000,
