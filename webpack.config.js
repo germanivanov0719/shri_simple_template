@@ -59,6 +59,7 @@ const config = {
     extensions: ['*', '.jsx', '.js', '.css'],
     alias: {
       'react-is': path.resolve('node_modules/react-is'),
+      'crypto-browserify$': path.resolve('src/crypto-fallback.ts'),
     },
     fallback: {
       buffer: require.resolve('buffer'),

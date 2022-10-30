@@ -19,7 +19,6 @@
   "scripts": {
     "start": "webpack serve --config ./webpack.config.js --mode development",
     "build": "webpack build --config ./webpack.config.js --mode production",
-    "test": "echo \"implement me\"",
     "lint:js": "eslint \"**/*.js*\"",
     "lint:css": "stylelint \"**/*.css\"",
     "preanalyze": "echo \"Wait for app to build...\"; npm run build",
