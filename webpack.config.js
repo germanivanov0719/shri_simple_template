@@ -22,6 +22,7 @@ const config = {
     }),
     new StatoscopePlugin({
       saveStatsTo: 'stats.json',
+      saveReportTo: 'stats.html',
       saveOnlyStats: false,
       open: false,
     }),

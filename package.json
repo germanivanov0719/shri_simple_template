@@ -22,7 +22,8 @@
     "test": "echo \"implement me\"",
     "lint:js": "eslint \"**/*.js*\"",
     "lint:css": "stylelint \"**/*.css\"",
-    "analyze": "webpack --json stats.json",
+    "preanalyze": "echo \"Wait for app to build...\"; npm run build",
+    "analyze": "echo \"Done, report was saved to ./stats.html\"",
     "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
