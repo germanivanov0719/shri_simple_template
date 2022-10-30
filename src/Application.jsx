@@ -12,10 +12,10 @@ function Application() {
         <Link to="./about">About</Link>
       </nav>
       <Switch>
-        <Route path="/about">
+        <Route path="./about">
           <About />
         </Route>
-        <Route path="/">
+        <Route path="./">
           <Home />
         </Route>
       </Switch>
