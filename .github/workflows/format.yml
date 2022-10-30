@@ -1,40 +1,45 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# ESLint is a tool for identifying and reporting on patterns
-# found in ECMAScript/JavaScript code.
-# More details at https://github.com/eslint/eslint
-# and https://eslint.org
-
-name: ESLint
+name: Format JS and CSS files
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ "master" ]
+    branches: ["master"]
   schedule:
-    - cron: '37 21 * * 6'
+    - cron: "37 21 * * 6"
 
 jobs:
-  eslint:
-    name: Run eslint scanning
+  ESLint:
+    name: Format with ESLint
     runs-on: ubuntu-latest
     permissions:
       contents: read
       security-events: write
-      actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status 
+      actions: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Install ESLint
-        run: |
-          npm install
+        run: npm install
 
       - name: Run ESLint
-        run: 
-          npm run lint:js -- --fix 2> /dev/null ; npm run lint:css -- --fix 2> /dev/null
+        run: npm run lint:js -- --fix
+        continue-on-error: true
+  Stylelint:
+    name: Format with Stylelint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Stylelint
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint:css -- --fix
         continue-on-error: true
