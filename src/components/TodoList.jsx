@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import lodash from 'lodash';
+import React, { useCallback, useState } from 'react';
+import lodash, { set } from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem, setText } from '../store';
 import TodoItem from './TodoItem';
@@ -22,7 +22,7 @@ function TodoList() {
     <div>
       <div>
         <input data-testid="input-add" value={text} onChange={onChange} />
-        <button type="button" data-testid="button-add" onClick={onClick}>Добавить</button>
+        <button type="button" data-testid="button-add" disabled={!text} onClick={onClick}>Добавить</button>
       </div>
       <div data-testid="list" className="list">
         {lodash.map(items, (text, i) => <TodoItem key={i} index={i} />)}
