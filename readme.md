@@ -11,7 +11,7 @@
    [x] `lint:js` — проверка JS кода при помощи [ESLint](https://eslint.org)
    [x] `lint:css` — проверка CSS кода при помощи [Stylelint](https://stylelint.io)
    [ ] `analyze` — формирование html отчета о сборке при помощи [Statoscope](http://statoscope.tech)
-   [ ] `validate` — проверка сборки через Statoscope при помощи конфига из файла `statoscope.config.js`
+   [x] `validate` — проверка сборки через Statoscope при помощи конфига из файла `statoscope.config.js`
    [ ] `deploy` — публикация приложения, собранного командой `build`, в GitHub Pages при помощи пакета [gh-pages](https://www.npmjs.com/package/gh-pages)
 
 2. **Настройте автоматическое выполнение действий в CI**

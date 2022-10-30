@@ -1,7 +1,7 @@
 {
   "name": "unit-demo-cra",
   "version": "0.1.0",
-  "homepage": "https://.",
+  "homepage": "https://germanivanov0719.github.io/shri_simple_template",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.21",
@@ -17,13 +17,15 @@
     "uuid": "^9.0.0"
   },
   "scripts": {
-    "start": "npx webpack serve --config ./webpack.config.js --mode development",
-    "build": "npx webpack build --config ./webpack.config.js --mode production",
+    "start": "webpack serve --config ./webpack.config.js --mode development",
+    "build": "webpack build --config ./webpack.config.js --mode production",
     "test": "echo \"implement me\"",
-    "lint:js": "npx eslint \"**/*.js*\"",
-    "lint:css": "npx stylelint \"**/*.css\"",
-    "analyze": "npx webpack --json stats.json",
-    "validate": "statoscope validate -i stats.json --config=./statoscope.config.js"
+    "lint:js": "eslint \"**/*.js*\"",
+    "lint:css": "stylelint \"**/*.css\"",
+    "analyze": "webpack --json stats.json",
+    "validate": "statoscope validate -i stats.json --config=./statoscope.config.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -45,6 +47,7 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
