@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
   target: 'web',
-  mode: 'development',
+  mode: 'production',
   entry: {
     main: './src/index.jsx',
   },
@@ -34,11 +34,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.html$/,
-        loader: 'html-loader',
-        exclude: /node_modules/,
-      },
-      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use:
@@ -57,11 +52,6 @@ const config = {
       {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.(ico|json|png|woff|woff2|eot|ttf|svg)$/,
-        use: ['file-loader?name=[name].[ext]'],
         exclude: /node_modules/,
       },
     ],
