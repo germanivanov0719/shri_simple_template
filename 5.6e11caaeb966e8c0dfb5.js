@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkunit_demo_cra=self.webpackChunkunit_demo_cra||[]).push([[5],{18:(e,t,a)=>{a.d(t,{a:()=>l});var n=a(0);const l=function(){return n.createElement(n.Fragment,null,n.createElement("h1",{"data-testid":"page-title"},"About"),n.createElement("p",null,"This is an example application."))}}}]);
+//# sourceMappingURL=5.6e11caaeb966e8c0dfb5.js.map
