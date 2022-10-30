@@ -24,8 +24,7 @@ jobs:
         run: npm install
 
       - name: Run ESLint
-        run: npm run lint:js -- --fix
-        continue-on-error: true
+        run: npm run lint:js
   Stylelint:
     name: Format with Stylelint
     runs-on: ubuntu-latest
@@ -41,5 +40,4 @@ jobs:
         run: npm install
 
       - name: Run Stylelint
-        run: npm run lint:css -- --fix
-        continue-on-error: true
+        run: npm run lint:css
