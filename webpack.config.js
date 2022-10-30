@@ -87,7 +87,7 @@ const config = {
     mergeDuplicateChunks: false,
     innerGraph: true,
     splitChunks: {
-      maxSize: 250000,
+      maxSize: 500000,
       minChunks: 2,
       chunks: 'all',
       minSize: 0,
