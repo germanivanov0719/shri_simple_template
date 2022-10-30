@@ -9,7 +9,6 @@ const config = {
   entry: {
     main: './src/index.jsx',
   },
-  devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Home',
