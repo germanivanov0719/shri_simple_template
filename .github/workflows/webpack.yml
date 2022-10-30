@@ -26,4 +26,7 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run deploy -- --user \"GitHub Actions <germanivanov0719@gmail.com>\" --repo \"https://github.com/germanivanov0719/shri_simple_template.git\"
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
